@@ -6,7 +6,7 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 17:31:25 by mait-aad          #+#    #+#             */
-/*   Updated: 2021/11/15 10:09:52 by mait-aad         ###   ########.fr       */
+/*   Updated: 2021/11/16 21:43:11 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,11 @@ static char	**ft_that_do_the_job(char const	*s,	char c, int counter, char **ptr)
 		while (s[stop] != c && s[stop])
 			stop++;
 		ptr[i] = (char *)malloc(stop - start + 1);
-		if (!ptr)
-			free((void *)ptr[i]);
+		if (!ptr){
+			while(i>=0)
+				free((void *)ptr[i--]);
+			break ;
+		}
 		ptr [i] = ft_cpyfstptr(ptr[i], s, start, c);
 		i++;
 	}
