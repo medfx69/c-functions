@@ -6,7 +6,7 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 01:37:56 by mait-aad          #+#    #+#             */
-/*   Updated: 2021/11/16 21:43:11 by mait-aad         ###   ########.fr       */
+/*   Updated: 2021/11/16 21:54:19 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 typedef struct s_list
 {
-void			*content;
-struct s_list	*next;
-} t_list;
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_atoi(const char	*str);
 void	ft_bzero(void	*s, size_t n);

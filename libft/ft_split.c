@@ -6,7 +6,7 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 17:31:25 by mait-aad          #+#    #+#             */
-/*   Updated: 2021/11/16 21:43:11 by mait-aad         ###   ########.fr       */
+/*   Updated: 2021/11/16 22:14:23 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,16 @@ static int	ft_nextc(const char *s, char c, int i)
 	return (i);
 }
 
-static char	*ft_cpyfstptr(char	*ptr, const char	*s, int start, char c)
+char	**make_ptr_free(char	**ptr)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (s[start] != c && s[start])
+	while (*ptr[i])
 	{
-		ptr[i] = s[start];
-		i++;
-		start++;
+		free(ptr[i]);
 	}
-	ptr[i] = '\0';
+	free (ptr);
 	return (ptr);
 }
 
@@ -70,17 +68,11 @@ static char	**ft_that_do_the_job(char const	*s,	char c, int counter, char **ptr)
 		stop = start;
 		while (s[stop] != c && s[stop])
 			stop++;
-		ptr[i] = (char *)malloc(stop - start + 1);
-		if (!ptr){
-			while(i>=0)
-				free((void *)ptr[i--]);
-			break ;
-		}
-		ptr [i] = ft_cpyfstptr(ptr[i], s, start, c);
+		ptr[i] = ft_substr(s, start, stop - start);
+		if (ptr[i] == NULL)
+			return (make_ptr_free(ptr));
 		i++;
 	}
-	if (!ptr)
-		free(ptr);
 	ptr[i] = 0;
 	return (ptr);
 }
