@@ -6,7 +6,7 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 10:41:58 by mait-aad          #+#    #+#             */
-/*   Updated: 2021/11/14 20:23:39 by mait-aad         ###   ########.fr       */
+/*   Updated: 2021/11/19 19:05:42 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char	*str)
 {
-	unsigned int	i;
-	unsigned int	countmi;
-	unsigned int	num;
+	int	i;
+	int	countmi;
+	int	num;
 
 	i = 0;
 	countmi = 0;
@@ -35,7 +35,7 @@ int	ft_atoi(const char	*str)
 		i++;
 	}
 	if (countmi != 0)
-		return ((int)-num);
+		return (-num);
 	else
-		return ((int)num);
+		return (num);
 }

@@ -6,7 +6,7 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:21:26 by mait-aad          #+#    #+#             */
-/*   Updated: 2021/11/14 19:42:59 by mait-aad         ###   ########.fr       */
+/*   Updated: 2021/11/18 22:57:10 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ char	*ft_strmsub(int nb, int sign, unsigned int j, int c)
 	unsigned int	i;
 	char			*ptr;
 
-	ptr = (char *)malloc(c + 2);
+	if (sign < 0)
+		ptr = (char *)malloc(c + 3);
+	else
+		ptr = (char *)malloc(c + 2);
 	if (!ptr)
 		return (0);
 	i = 0;

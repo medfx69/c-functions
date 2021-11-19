@@ -6,7 +6,7 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 17:31:25 by mait-aad          #+#    #+#             */
-/*   Updated: 2021/11/16 22:14:23 by mait-aad         ###   ########.fr       */
+/*   Updated: 2021/11/19 19:29:49 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,15 @@ static int	ft_nextc(const char *s, char c, int i)
 	return (i);
 }
 
-char	**make_ptr_free(char	**ptr)
+static char	**make_ptr_free(char	**ptr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (*ptr[i])
 	{
 		free(ptr[i]);
+		i++;
 	}
 	free (ptr);
 	return (ptr);
