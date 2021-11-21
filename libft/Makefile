@@ -2,6 +2,7 @@ NAME=libft.a
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 RM=rm -f
+H_F= libft.h
 SRC = ft_atoi.c       ft_isdigit.c    ft_memmove.c    ft_split.c      ft_strlcpy.c    ft_strtrim.c \
 ft_bzero.c      ft_isprint.c    ft_memset.c     ft_strchr.c     ft_strlen.c     ft_substr.c \
 ft_calloc.c     ft_itoa.c       ft_putchar_fd.c ft_strdup.c     ft_strmapi.c     ft_tolower.c \
@@ -14,11 +15,11 @@ $(NAME): $(OBJ)
 		ar rc $(NAME) $(OBJ)
 
 all: $(NAME)
-	$(CC) -I. -o $@ -c $? $(CFLAGS)
+	$(CC) -I  -o $@ -c $? $(CFLAGS)
 
 clean:
 		$(RM) $(OBJ)
 
 fclean: clean
 		$(RM) $(NAME)
-re: clean fclean
+re: fclean all
